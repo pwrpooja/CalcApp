@@ -1,0 +1,4 @@
+Calculation Request Name,Number One, Number Two, Operation Type, Result
+6,1,1,+,2
+7,1,1,-,0
+8,1,1,*,1

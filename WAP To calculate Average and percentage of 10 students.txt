@@ -1,0 +1,30 @@
+import  java.util.Scanner;
+public class StudentMarks{
+    public static void main(String[] args){
+        int[][]marks=new int[10][5];
+        Scanner input=new Scanner(System.in);
+        for(int i=0;i<10;i++){
+            System.out.println("Enter marks for student"+(i+1)+":");
+            for(int j=0;j<5;j++){
+                System.out.println("Subject"+(j+1)+":");
+                marks[i][j]=input.nextInt();
+            }
+        }
+        int[] totalMarks=new int[10];
+        float[]avgMarks=new float[10];
+        for(int i=0;i<10;i++){
+            for(int j=0;j<5;j++){
+                totalMarks[i]+=marks[i][j];
+            }
+            avgMarks[i]=totalMarks[i]/5.0f;
+        }
+        float[] percentage=new float[10];
+        for(int i=0;i<10;i++){
+            percentage[i]=(totalMarks[i]/500.0f)*100.0f;
+        }
+        System.out.println("Student\tTotal Marks\tAverage Marks\tPercentage");
+        for(int i=0;i<10;i++){
+            System.out.println((i+1)+"\t"+totalMarks[i]+"\t\t"+avgMarks[i]+"t\t"+percentage[i]+"%");
+        }
+        }
+    }
