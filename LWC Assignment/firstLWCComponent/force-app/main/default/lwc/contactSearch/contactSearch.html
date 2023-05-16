@@ -1,0 +1,51 @@
+<template>
+    <!-- Creates a Lightning card with the title "Contact Search Records" and the icon "standard:contact" -->
+    <lightning-card title="Contact Search Records" icon-name="standard:contact">
+
+
+        <!-- Creates a Lightning layout with multiple rows and items aligned vertically to the bottom -->
+        <lightning-layout multiple-rows="true" vertical-align="end">
+
+        
+        
+            <!-- Creates a Lightning layout item with a size of 4 and padding, which contains a search input field -->
+            <lightning-layout-item size="4" padding="around-small">          
+                <lightning-input    
+                                type="search" 
+                                label="Search Contacts" 
+                                placeholder="type here..."
+                                value={searchKey} 
+                                onchange={handleInputChange}>
+                </lightning-input>
+            </lightning-layout-item>
+        
+
+            <!-- Creates a Lightning layout item with a size of 2 and padding, which contains a button to add a new contact -->
+            <lightning-layout-item size="2" padding="around-small">
+                <lightning-button 
+                                label="Add New Contact" 
+                                variant="Neutral" 
+                                name="Create Contact" 
+                                onclick={handleContactCreate}
+                                style="margin-left:775px;">
+                </lightning-button>
+            </lightning-layout-item>
+
+            <!-- Creates a Lightning layout item with padding, which contains a datatable to display contact records -->
+            <lightning-layout-item padding="around-small">
+                <template if:true={showTable}>
+                <lightning-datatable    key-field="Id"
+                                        data={contactList.data}
+                                        columns={columns}
+                                        hide-checkbox-column="true"
+                                        onrowaction={callRowAction}>
+                </lightning-datatable>
+            </template>
+            </lightning-layout-item> 
+        
+        </lightning-layout>
+    </lightning-card>
+</template>
+
+
+
